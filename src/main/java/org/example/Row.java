@@ -9,6 +9,10 @@ public class Row {
         this.data = data;
     }
 
+    public Double getDataAt(int index) {
+        return data.get(index);
+    }
+
     public List<Double> getData() {
         return data;
     }

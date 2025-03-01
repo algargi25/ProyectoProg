@@ -12,26 +12,33 @@ public class CSV {
     public CSV() {
     }
 
-    public Table readTable(String valor) throws URISyntaxException {
-        String fichero = Objects.requireNonNull(getClass().getClassLoader().getResource(valor)).toURI().getPath();
-        Table tabla;
-        Scanner sc = new Scanner(fichero);
-        List<String> cab = new ArrayList<>();
-        List<Row> elementos = new ArrayList<>();
-        int lim = 0;
-            while (sc.hasNextLine()) {
-                String linea = sc.nextLine();
-                String[] datos = linea.split(",");
-                if(lim == 0){
-                    cab = Arrays.asList(datos);
-                    lim = 1;
-                }else{
-                    Row r =
-                    elementos.add(Arrays.asList(datos));
-                }
-            }
+    public static Table readTable(String valor) throws URISyntaxException, IOException {
+        String fichero = Objects.requireNonNull(CSV.class.getClassLoader().getResource(valor)).toURI().getPath();
+        BufferedReader br = new BufferedReader(new FileReader(fichero));
+        String line;
 
-        return tabla;
+        // Leer la primera línea como cabecera
+        String[] headers = br.readLine().split(",");
+
+        // Crear la tabla con los encabezados
+        Table table = new Table(Arrays.asList(headers));
+
+        // Leer cada fila del archivo y agregarla a la tabla
+        while ((line = br.readLine()) != null) {
+            String[] values = line.split(",");
+            List<Double> rowValues = new ArrayList<>();
+
+            // Convertir los valores a Double
+            for (String value : values) {
+                rowValues.add(Double.parseDouble(value));
+            }
+            Row fila = new Row(rowValues);
+            // Agregar la fila a la tabla
+            table.addRow(fila);
+        }
+
+        br.close();
+        return table;
     }
     public TableWithLabels readTableWithLabels(String s){
         return null;

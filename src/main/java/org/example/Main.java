@@ -1,17 +1,23 @@
 package org.example;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        try {
+            Table table = CSV.readTable("miles_dollars.csv");
+            System.out.println("Filas en la tabla: " + table.getRowCount());
+                for (int i = 0; i < table.getRowCount(); i++) {
+                    System.out.println(table.getRowAt(i).getData());
+                }
+            System.out.println("Encabezados: " + table.getHeaders());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
         }
     }
-}
+    }

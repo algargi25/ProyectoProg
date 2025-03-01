@@ -1,20 +1,35 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Table {
     private List<String> headers;
-    private List<Row> filas;
+    private List<Row> rows;
 
-    public Table(List<String> headers, List<Row> filas) {
+    public Table(List<String> headers) {
         this.headers = headers;
-        this.filas = filas;
+        this.rows = new ArrayList<>();
     }
 
+    public void addRow(Row row) {
+        rows.add(row);
+    }
 
+    public Row getRowAt(int index) {
+        if (index >= 0 && index < rows.size()) {
+            return rows.get(index);
+        }
+        throw new IndexOutOfBoundsException();
 
-    public Row getRowAt(int rowNumber){
-        return null;
+    }
+
+    public int getRowCount() {
+        return rows.size();
+    }
+
+    public List<String> getHeaders() {
+        return headers;
     }
     public List<Double> getColumnAt(int columnNumber){
         return null;
