@@ -1,9 +1,9 @@
 // TODO: Reemplazar por el nombre de tu paquete
-package es.uji.scastele.table;
+package es.uji.garcia;
 
 // TODO: Reemplazar por los imports de tu proyecto
-import es.uji.scastele.table.Row;
-import es.uji.scastele.table.Table;
+import es.uji.garcia.Row;
+import es.uji.garcia.Table;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,8 +13,6 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class TableTest {
 

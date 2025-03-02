@@ -1,10 +1,7 @@
-package org.example;
+package es.uji.garcia;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         try {
@@ -16,8 +13,6 @@ public class Main {
             System.out.println("Encabezados: " + table.getHeaders());
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
         }
     }
     }

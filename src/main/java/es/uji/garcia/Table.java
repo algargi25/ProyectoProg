@@ -1,20 +1,19 @@
-package org.example;
+package es.uji.garcia;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Table {
     private List<String> headers;
     private List<Row> rows;
 
-    public Table(List<String> headers) {
+    public Table(List<String> headers, List<Row> rows) {
         this.headers = headers;
-        this.rows = new ArrayList<>();
+        this.rows = rows;
     }
 
-    public void addRow(Row row) {
-        rows.add(row);
-    }
+//    public void addRow(Row row) {
+//        rows.add(row);
+//    }
 
     public Row getRowAt(int index) {
         if (index >= 0 && index < rows.size()) {

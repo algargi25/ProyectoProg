@@ -1,4 +1,4 @@
-package es.uji.scastele.testsuite;
+package es.uji.garcia;
 
 import org.junit.platform.suite.api.IncludeClassNamePatterns;
 import org.junit.platform.suite.api.SelectPackages;

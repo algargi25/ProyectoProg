@@ -1,9 +1,9 @@
 // TODO: Reemplazar por el nombre de tu paquete
-package es.uji.scastele.machinelearning;
+package es.uji.garcia;
 
 // TODO: Reemplazar por los imports de tu proyecto
-import es.uji.scastele.csv.CSV;
-import es.uji.scastele.table.TableWithLabels;
+import es.uji.garcia.CSV;
+import es.uji.garcia.TableWithLabels;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 class KNNTest {
 

@@ -1,10 +1,7 @@
 // TODO: Reemplazar por el nombre de tu paquete
-package es.uji.scastele.csv;
+package es.uji.garcia;
 
 // TODO: Reemplazar por los imports de tu proyecto
-import es.uji.scastele.csv.CSV;
-import es.uji.scastele.table.Table;
-import es.uji.scastele.table.TableWithLabels;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

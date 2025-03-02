@@ -1,4 +1,4 @@
-package org.example;
+package es.uji.garcia;
 
 import java.util.List;
 
