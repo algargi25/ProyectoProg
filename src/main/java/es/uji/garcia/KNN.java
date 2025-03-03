@@ -11,7 +11,7 @@ public class KNN {
     }
     public Integer estimate(List<Double> data ){
         if(trainingData == null){
-            throw new IllegalStateException("No hay tabla");
+            throw new IllegalStateException("No se encuentra");
         }
         boolean primero = true;
         double distancia_min = 0;
