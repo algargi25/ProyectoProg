@@ -40,13 +40,13 @@ class TableWithLabelsTest {
 
 
         //---(1) Setter y addRow---
-        tableWithLabels = new TableWithLabels();
-        tableWithLabels.setHeaders(headers);
-        rows.forEach(row -> tableWithLabels.addRow(row));
+//        tableWithLabels = new TableWithLabels();
+//        tableWithLabels.setHeaders(headers);
+//        rows.forEach(row -> tableWithLabels.addRow(row));
         //-------------------------
 
         //---(2) Inyeccion por constructor---
-        //tableWithLabels = new TableWithLabels(headers, rows);
+        tableWithLabels = new TableWithLabels(headers, rows);
         //-----------------------------------
     }
 

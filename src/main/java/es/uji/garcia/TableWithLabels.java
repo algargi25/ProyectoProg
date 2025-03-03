@@ -7,30 +7,19 @@ import java.util.Map;
 
 public class TableWithLabels extends Table{
 
-    private Map<String, Integer> labelsToIndex; // Mapea etiquetas a números enteros
-    private List<RowWithLabel> labeledRows; // Lista de filas con etiquetas
+    private List<RowWithLabel> labeledRows;
 
-    /**
-     * Constructor de TableWithLabels.
-     * @param headers Lista con los nombres de las columnas.
-     */
+
     public TableWithLabels(List<String> headers, List<RowWithLabel> labeledRows) {
         super(headers,new ArrayList<>(labeledRows));
-//        this.labelsToIndex = new HashMap<>();
         this.labeledRows = labeledRows;
     }
-
     public List<RowWithLabel> getLabeledRows() {
         return labeledRows;
     }
-    public
-
     @Override
     public RowWithLabel getRowAt(int row){
-        if (row >= 0 && row < labeledRows.size()) {
             return labeledRows.get(row);
-        }
-        throw new IndexOutOfBoundsException();
     }
     public int getLabelAsInteger(String etiqueta){
         HashMap<String,Integer> mapaetiquetas = convierteMapa();

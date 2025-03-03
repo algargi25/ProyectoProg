@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,7 +33,7 @@ class CSVTest {
     @Test
     @DisplayName("CSV - readTable")
 // TODO: En caso de manejar la excepción en CSV, puedes eliminar la declaración "throws" aquí
-    void readTable() throws IOException {
+    void readTable() throws IOException, URISyntaxException {
         Table table = csv.readTable(milesFile);
 
         // assert that the table is not null

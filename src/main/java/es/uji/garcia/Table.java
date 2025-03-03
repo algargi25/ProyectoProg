@@ -1,5 +1,6 @@
 package es.uji.garcia;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Table {
@@ -11,9 +12,14 @@ public class Table {
         this.rows = rows;
     }
 
-//    public void addRow(Row row) {
-//        rows.add(row);
-//    }
+
+    public void setHeaders(List<String> headers) {
+        this.headers = headers;
+    }
+
+    public void addRow(Row row) {
+        rows.add(row);
+    }
 
     public Row getRowAt(int index) {
         if (index >= 0 && index < rows.size()) {
@@ -31,6 +37,10 @@ public class Table {
         return headers;
     }
     public List<Double> getColumnAt(int columnNumber){
-        return null;
+        List<Double> resultado = new ArrayList<>();
+        for (Row actual : rows){
+            resultado.add(actual.getDataAt(columnNumber));
+        }
+        return resultado;
     }
 }

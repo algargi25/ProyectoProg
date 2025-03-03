@@ -13,31 +13,25 @@ public class KNN {
         if(trainingData == null){
             throw new IllegalStateException("No hay tabla");
         }
-
         boolean primero = true;
         double distancia_min = 0;
         Integer etiqueta = null;
-
-
         for(RowWithLabel it : trainingData.getLabeledRows()){
-
-            double distancia = euclideanDistance(data, it.getData());
+            double distancia = calculoEuclidiano(data, it.getData());
             if(primero){
                 distancia_min = distancia;
                 etiqueta = trainingData.getLabelAsInteger(it.getLabel());
                 primero = false;
             }
-            if(!primero && distancia < distancia_min){
+            if(distancia < distancia_min){
                 distancia_min = distancia;
                 etiqueta = trainingData.getLabelAsInteger(it.getLabel());
             }
         }
-
         return etiqueta;
-
     }
 
-    private double euclideanDistance(List<Double> sample1, List<Double> sample2) {
+    private double calculoEuclidiano(List<Double> sample1, List<Double> sample2) {
         double sum = 0.0;
         for (int i = 0; i < sample1.size(); i++) {
             sum += Math.pow(sample1.get(i) - sample2.get(i), 2);
