@@ -1,4 +1,6 @@
-package es.uji.garcia;
+package es.uji.garcia.machinelearning;
+
+import es.uji.garcia.table.Table;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,9 @@
-package es.uji.garcia;
+package es.uji.garcia.csv;
+
+import es.uji.garcia.table.Row;
+import es.uji.garcia.table.RowWithLabel;
+import es.uji.garcia.table.Table;
+import es.uji.garcia.table.TableWithLabels;
 
 import java.io.*;
 import java.net.URISyntaxException;

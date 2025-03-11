@@ -2,9 +2,10 @@
 package es.uji.garcia;
 
 // TODO: Reemplazar por los imports de tu proyecto
-import es.uji.garcia.CSV;
-import es.uji.garcia.TableWithLabels;
+import es.uji.garcia.csv.CSV;
 
+import es.uji.garcia.machinelearning.KNN;
+import es.uji.garcia.table.TableWithLabels;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

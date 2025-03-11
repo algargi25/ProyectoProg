@@ -2,8 +2,9 @@
 package es.uji.garcia;
 
 // TODO: Reemplazar por los imports de tu proyecto
-import es.uji.garcia.*;
 
+import es.uji.garcia.table.RowWithLabel;
+import es.uji.garcia.table.TableWithLabels;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
