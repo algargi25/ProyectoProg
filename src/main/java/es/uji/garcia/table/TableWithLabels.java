@@ -21,6 +21,9 @@ public class TableWithLabels extends Table{
     public RowWithLabel getRowAt(int row){
             return rows.get(row);
     }
+    public List<RowWithLabel> getRows(){
+        return rows;
+    }
     public int getLabelAsInteger(String label){
         List<RowWithLabel> filas = rows;
         HashMap<String,Integer> result = new HashMap<>();
