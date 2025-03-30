@@ -5,14 +5,16 @@ import es.uji.garcia.table.TableWithLabels;
 
 import java.util.List;
 
-public class KNN {
+public class KNN implements Algorithm<TableWithLabels> {
 
     private TableWithLabels trainingData;
 
+    @Override
     public void train(TableWithLabels data) {
         this.trainingData = data;
     }
 
+    @Override
     public Integer estimate(List<Double> data) {
         if (trainingData == null) {
             throw new IllegalStateException("No se encuentra");
