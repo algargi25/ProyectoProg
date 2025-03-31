@@ -1,12 +1,11 @@
 // TODO: Remplazar <nombre> por el nombre de tu paquete
-package es.uji.garcia;
+package es.uji.garcia.algorithms;
 
 // TODO: Pon los imports especificos a tu proyecto
 
 
 import es.uji.garcia.data.CSV;
 import es.uji.garcia.exceptions.InvalidClusterNumberException;
-import es.uji.garcia.algorithms.KMeans;
 import es.uji.garcia.data.table.TableWithLabels;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

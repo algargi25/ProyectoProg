@@ -1,5 +1,5 @@
 // TODO: Reemplazar por el nombre de tu paquete
-package es.uji.garcia;
+package es.uji.garcia.data;
 
 // TODO: Reemplazar por los imports de tu proyecto
 

@@ -1,19 +1,9 @@
 package es.uji.garcia.exceptions;
 
-public class InvalidClusterNumberException extends IllegalArgumentException {
-//    private final int numClusters;
-//    private final int numRows;
+public class InvalidClusterNumberException extends Exception {
 
-
-//    public InvalidClusterNumberException(int numClusters, int numRows) {
-//        super("Número de clústeres inválido: " + numClusters + " (Debe ser menor o igual que el número de datos: " + numDatos + ")");
-//        this.numClusters = numClusters;
-//        this.numRows = numRows;
-//    }
-
-//    public int getNumberOfClusters() {
-//        return numClusters;
-//    }
-
+    public InvalidClusterNumberException(int clusters, int numClusters) {
+        super("Número de clusters (" + clusters + ") no puede ser mayor que el número de datos (" + numClusters + ").");
+    }
 
 }

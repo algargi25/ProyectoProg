@@ -9,12 +9,12 @@ public class KNN implements Algorithm<TableWithLabels, Integer> {
 
     private TableWithLabels trainingData;
 
-    @Override
+
     public void train(TableWithLabels data) {
         this.trainingData = data;
     }
 
-    @Override
+
     public Integer estimate(List<Double> data) {
         if (trainingData == null) {
             throw new IllegalStateException("No se encuentra");
@@ -22,11 +22,15 @@ public class KNN implements Algorithm<TableWithLabels, Integer> {
 
         double distanciaMin = Double.MAX_VALUE;
         Integer etiqueta = null;
-
+        boolean primero = true;
         for (RowWithLabel row : trainingData.getRows()) {
             double distancia = calculoEuclidiano(data, row.getData());
-
-            if (distancia < distanciaMin) {
+            if(primero){
+                distanciaMin = distancia;
+                etiqueta = trainingData.getLabelAsInteger(row.getLabel());
+                primero = false;
+            }
+            if (!primero && distancia < distanciaMin) {
                 distanciaMin = distancia;
                 etiqueta = trainingData.getLabelAsInteger(row.getLabel());
             }

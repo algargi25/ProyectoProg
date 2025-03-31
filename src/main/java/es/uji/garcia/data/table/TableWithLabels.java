@@ -8,11 +8,13 @@ import java.util.List;
 public class TableWithLabels extends Table{
 
     private List<RowWithLabel> rows;
-
+    private HashMap<String, Integer> etiquetas;
 
     public TableWithLabels(List<String> headers, List<RowWithLabel> rows) {
         super(headers,new ArrayList<>(rows));
         this.rows = rows;
+        this.etiquetas = new HashMap<>();
+        actEtiquetas();
     }
     public List<RowWithLabel> getLabeledRows() {
         return rows;
@@ -24,18 +26,18 @@ public class TableWithLabels extends Table{
     public List<RowWithLabel> getRows(){
         return rows;
     }
-    public int getLabelAsInteger(String label){
-        List<RowWithLabel> filas = rows;
-        HashMap<String,Integer> result = new HashMap<>();
+
+    private void actEtiquetas(){
         int indice = 0;
-        for(RowWithLabel fila : filas){
-            String actLabel= fila.getLabel();
-            if(!result.containsKey(actLabel)){
-                result.put(actLabel, indice);
-                indice++;
+        for (RowWithLabel fila : rows) {
+            String etiqueta = fila.getLabel();
+            if (!etiquetas.containsKey(etiqueta)) {
+                etiquetas.putIfAbsent(etiqueta, indice++);
             }
         }
-        return result.get(label);
+    }
+    public int getLabelAsInteger(String label){
+        return etiquetas.get(label);
     }
 
 

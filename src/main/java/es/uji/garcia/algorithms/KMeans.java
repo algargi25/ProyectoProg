@@ -1,6 +1,7 @@
 package es.uji.garcia.algorithms;
 
 import es.uji.garcia.data.table.Table;
+import es.uji.garcia.exceptions.InvalidClusterNumberException;
 
 import java.util.*;
 
@@ -17,35 +18,30 @@ public class KMeans implements Algorithm<Table, Integer> {
         this.centroides = new ArrayList<>();
     }
 
-    @Override
-    public void train(Table datos) {
-//        if (numClusters > datos.getRowCount()) {
-//            throw new InvalidClusterNumberException(numClusters, datos.getRowCount());
-//        }
 
+    public void train(Table datos) throws InvalidClusterNumberException{
+        if (numClusters > datos.getRowCount()) {
+            throw new InvalidClusterNumberException(numClusters, datos.getRowCount());
+        }
         Random random = new Random(seed);
         centroides.clear();
-
         // 1. Inicializar centroides aleatorios
         for (int i = 0; i < numClusters; i++) {
             int randomIndex = random.nextInt(datos.getRowCount());
             centroides.add(new ArrayList<>(datos.getRowAt(randomIndex).getData()));
         }
-
         // 2. Iterar para ajustar los centroides
         for (int iter = 0; iter < numIterations; iter++) {
             Map<Integer, List<List<Double>>> clusters = new HashMap<>();
             for (int i = 0; i < numClusters; i++) {
                 clusters.put(i, new ArrayList<>());
             }
-
             // 3. Asignar cada punto al centroide más cercano
             for (int i = 0; i < datos.getRowCount(); i++) {
                 List<Double> punto = datos.getRowAt(i).getData();
                 int clusterIndex = obtenerCentroideMasCercano(punto);
                 clusters.get(clusterIndex).add(punto);
             }
-
             // 4. Recalcular los centroides
             for (int i = 0; i < numClusters; i++) {
                 if (!clusters.get(i).isEmpty()) {
@@ -55,7 +51,7 @@ public class KMeans implements Algorithm<Table, Integer> {
         }
     }
 
-    @Override
+
     public Integer estimate(List<Double> datos) {
         if (centroides.isEmpty()) {
             throw new IllegalStateException("El modelo no ha sido entrenado.");

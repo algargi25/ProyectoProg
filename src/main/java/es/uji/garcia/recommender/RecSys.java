@@ -2,6 +2,8 @@ package es.uji.garcia.recommender;
 
 import es.uji.garcia.algorithms.Algorithm;
 import es.uji.garcia.data.table.Table;
+import es.uji.garcia.exceptions.InvalidClusterNumberException;
+import es.uji.garcia.exceptions.LikedItemNotFoundException;
 
 import java.util.*;
 
@@ -16,7 +18,8 @@ public class RecSys {
         this.estimatedClasses = new HashMap<>();
     }
 
-    public void train(Table trainData) {
+    public void train(Table trainData) throws Exception {
+
         algorithm.train(trainData);
     }
 
@@ -27,9 +30,9 @@ public class RecSys {
         }
     }
 
-    public List<String> recommend(String nameLikedItem, int numRecommendations) {
+    public List<String> recommend(String nameLikedItem, int numRecommendations) throws LikedItemNotFoundException {
         if (!estimatedClasses.containsKey(nameLikedItem)) {
-            throw new IllegalArgumentException("El ítem no se encuentra en la lista.");
+            throw new LikedItemNotFoundException("El ítem '" + nameLikedItem + "' no se encuentra en la lista.");
         }
 
         int targetClass = estimatedClasses.get(nameLikedItem);
@@ -40,6 +43,9 @@ public class RecSys {
                 recommendations.add(item);
                 if (recommendations.size() == numRecommendations) break;
             }
+        }
+        if (recommendations.isEmpty()) {
+            throw new LikedItemNotFoundException("No se encontraron recomendaciones para el ítem '" + nameLikedItem + "'.");
         }
         return recommendations;
     }

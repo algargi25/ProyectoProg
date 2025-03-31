@@ -7,9 +7,7 @@ import es.uji.garcia.data.CSV;
 import es.uji.garcia.data.table.Table;
 import es.uji.garcia.recommender.RecSys;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.*;
@@ -23,10 +21,10 @@ class SongRecSys {
 
         // File names (could be provided as arguments to the constructor to be more general)
         Map<String,String> filenames = new HashMap<>();
-        filenames.put("knn"+"train",ruta+sep+"songs_train.csv");
-        filenames.put("knn"+"test",ruta+sep+"songs_test.csv");
-        filenames.put("kmeans"+"train",ruta+sep+"songs_train_withoutnames.csv");
-        filenames.put("kmeans"+"test",ruta+sep+"songs_test_withoutnames.csv");
+        filenames.put("knn"+"train",ruta+sep+ "/songs_train.csv");
+        filenames.put("knn"+"test",ruta+sep+ "/songs_test.csv");
+        filenames.put("kmeans"+"train",ruta+sep+ "/songs_train_withoutnames.csv");
+        filenames.put("kmeans"+"test",ruta+sep+ "/songs_test_withoutnames.csv");
 
         // Algorithms
         Map<String, Algorithm> algorithms = new HashMap<>();
@@ -43,7 +41,7 @@ class SongRecSys {
         }
 
         // Names of items
-        List<String> names = readNames(ruta+sep+"songs_test_names.csv");
+        List<String> names = readNames(ruta+sep+ "/songs_test_names.csv");
 
         // Start the RecSys
         this.recsys = new RecSys(algorithms.get(method));

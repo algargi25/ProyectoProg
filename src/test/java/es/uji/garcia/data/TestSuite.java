@@ -1,4 +1,4 @@
-package es.uji.garcia;
+package es.uji.garcia.data;
 
 import org.junit.platform.suite.api.IncludeClassNamePatterns;
 import org.junit.platform.suite.api.SelectPackages;

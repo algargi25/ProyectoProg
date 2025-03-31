@@ -1,5 +1,5 @@
 // TODO: Remplazar <nombre> por el nombre de tu paquete
-package es.uji.garcia;
+package es.uji.garcia.recommender;
 
 // TODO: Pon los imports especificos a tu proyecto
 
@@ -8,7 +8,7 @@ import es.uji.garcia.algorithms.KMeans;
 import es.uji.garcia.algorithms.KNN;
 import es.uji.garcia.data.CSV;
 import es.uji.garcia.data.table.Table;
-import es.uji.garcia.recommender.RecSys;
+import es.uji.garcia.exceptions.LikedItemNotFoundException;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
@@ -49,10 +49,11 @@ class RecSysTest {
 
         @BeforeEach
         // TODO: añadir o eliminar excepciones según tu implementación
-        void setUp() throws IOException, URISyntaxException {
-            trainTable = new CSV().readTableWithLabels(songsFolder + separator + "songs_train.csv");
-            testTable = new CSV().readTableWithLabels(songsFolder + separator + "songs_test.csv");
-            testItemNames = readNames(songsFolder + separator + "songs_test_names.csv");
+        void setUp() throws Exception {
+
+            trainTable = new CSV().readTableWithLabels(songsFolder + separator + "/songs_train.csv");
+            testTable = new CSV().readTableWithLabels(songsFolder + separator + "/songs_test.csv");
+            testItemNames = readNames(songsFolder + separator + "/songs_test_names.csv");
 
             algorithm = new KNN();
             recSys = new RecSys(algorithm);
@@ -94,10 +95,10 @@ class RecSysTest {
 
         @BeforeEach
         // TODO: añadir o eliminar excepciones según tu implementación
-        void setUp() throws IOException, URISyntaxException {
-            trainTable = new CSV().readTableWithLabels(songsFolder + separator + "songs_train_withoutnames.csv");
-            testTable = new CSV().readTableWithLabels(songsFolder + separator + "songs_test_withoutnames.csv");
-            testItemNames = readNames(songsFolder + separator + "songs_test_names.csv");
+        void setUp() throws Exception {
+            trainTable = new CSV().readTableWithLabels(songsFolder + separator + "/songs_train_withoutnames.csv");
+            testTable = new CSV().readTableWithLabels(songsFolder + separator + "/songs_test_withoutnames.csv");
+            testItemNames = readNames(songsFolder + separator + "/songs_test_names.csv");
 
             algorithm = new KMeans(numClusters, numIterations, seed);
             recSys = new RecSys(algorithm);

@@ -1,9 +1,8 @@
 // TODO: Reemplazar por el nombre de tu paquete
-package es.uji.garcia;
+package es.uji.garcia.data;
 
 // TODO: Reemplazar por los imports de tu proyecto
 
-import es.uji.garcia.data.CSV;
 import es.uji.garcia.data.table.Table;
 import es.uji.garcia.data.table.TableWithLabels;
 import org.junit.jupiter.api.AfterEach;
