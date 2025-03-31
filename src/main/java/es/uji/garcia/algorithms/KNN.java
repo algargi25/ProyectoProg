@@ -1,11 +1,11 @@
-package es.uji.garcia.machinelearning;
+package es.uji.garcia.algorithms;
 
-import es.uji.garcia.table.RowWithLabel;
-import es.uji.garcia.table.TableWithLabels;
+import es.uji.garcia.data.table.RowWithLabel;
+import es.uji.garcia.data.table.TableWithLabels;
 
 import java.util.List;
 
-public class KNN implements Algorithm<TableWithLabels> {
+public class KNN implements Algorithm<TableWithLabels, Integer> {
 
     private TableWithLabels trainingData;
 

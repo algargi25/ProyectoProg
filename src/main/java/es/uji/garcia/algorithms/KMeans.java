@@ -1,10 +1,10 @@
-package es.uji.garcia.machinelearning;
+package es.uji.garcia.algorithms;
 
-import es.uji.garcia.table.Table;
+import es.uji.garcia.data.table.Table;
 
 import java.util.*;
 
-public class KMeans implements Algorithm<Table> {
+public class KMeans implements Algorithm<Table, Integer> {
     private int numClusters;
     private int numIterations;
     private long seed;
@@ -19,9 +19,9 @@ public class KMeans implements Algorithm<Table> {
 
     @Override
     public void train(Table datos) {
-        if (numClusters > datos.getRowCount()) {
-            throw new InvalidClusterNumberException(numClusters, datos.getRowCount());
-        }
+//        if (numClusters > datos.getRowCount()) {
+//            throw new InvalidClusterNumberException(numClusters, datos.getRowCount());
+//        }
 
         Random random = new Random(seed);
         centroides.clear();

@@ -1,4 +1,4 @@
-package es.uji.garcia.table;
+package es.uji.garcia.data.table;
 
 import java.util.ArrayList;
 import java.util.List;

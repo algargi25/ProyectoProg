@@ -1,4 +1,4 @@
-package es.uji.garcia.table;
+package es.uji.garcia.data.table;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,5 +37,6 @@ public class TableWithLabels extends Table{
         }
         return result.get(label);
     }
+
 
 }

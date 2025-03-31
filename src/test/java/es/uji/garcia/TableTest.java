@@ -2,8 +2,8 @@
 package es.uji.garcia;
 
 // TODO: Reemplazar por los imports de tu proyecto
-import es.uji.garcia.table.Row;
-import es.uji.garcia.table.Table;
+import es.uji.garcia.data.table.Row;
+import es.uji.garcia.data.table.Table;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
