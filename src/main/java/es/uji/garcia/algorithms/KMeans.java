@@ -25,24 +25,22 @@ public class KMeans implements Algorithm<Table, Integer> {
         }
         Random random = new Random(seed);
         centroides.clear();
-        // 1. Inicializar centroides aleatorios
+        // Centroides aleatorios
         for (int i = 0; i < numClusters; i++) {
             int randomIndex = random.nextInt(datos.getRowCount());
             centroides.add(new ArrayList<>(datos.getRowAt(randomIndex).getData()));
         }
-        // 2. Iterar para ajustar los centroides
         for (int iter = 0; iter < numIterations; iter++) {
             Map<Integer, List<List<Double>>> clusters = new HashMap<>();
             for (int i = 0; i < numClusters; i++) {
                 clusters.put(i, new ArrayList<>());
             }
-            // 3. Asignar cada punto al centroide más cercano
             for (int i = 0; i < datos.getRowCount(); i++) {
                 List<Double> punto = datos.getRowAt(i).getData();
                 int clusterIndex = obtenerCentroideMasCercano(punto);
                 clusters.get(clusterIndex).add(punto);
             }
-            // 4. Recalcular los centroides
+            // Recalculo de centroides
             for (int i = 0; i < numClusters; i++) {
                 if (!clusters.get(i).isEmpty()) {
                     centroides.set(i, calcularNuevoCentroide(clusters.get(i)));
@@ -54,10 +52,10 @@ public class KMeans implements Algorithm<Table, Integer> {
 
     public Integer estimate(List<Double> datos) {
         if (centroides.isEmpty()) {
-            throw new IllegalStateException("El modelo no ha sido entrenado.");
+            throw new IllegalStateException();
         }
 
-        return obtenerCentroideMasCercano(datos) + 1; // Ajuste para estar en el rango (1, ..., K)
+        return obtenerCentroideMasCercano(datos) + 1;
     }
 
     private int obtenerCentroideMasCercano(List<Double> punto) {
