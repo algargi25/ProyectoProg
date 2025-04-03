@@ -31,7 +31,7 @@ class SongRecSys {
         // Algorithms
         Map<String, Algorithm> algorithms = new HashMap<>();
         Distance dist = new EuclideanDistance();
-        algorithms.put("knn",new KNN());
+        algorithms.put("knn",new KNN(dist));
         algorithms.put("kmeans",new KMeans(15, 200, 4321,dist));
 
         // Tables

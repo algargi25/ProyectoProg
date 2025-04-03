@@ -20,22 +20,10 @@ public abstract class ReaderTemplate<T extends Table> {
         closeSource();
         return null;
     }
-    protected void openSource(String source){
-
-    }
-    protected void processHeaders(String headers){
-
-    }
-    protected void processData(String data){
-
-    }
-    protected void closeSource(){
-
-    }
-    protected boolean hasMoreData(){
-        return true;
-    }
-    protected String getNextData(){
-        return "";
-    }
+    protected abstract void openSource(String source);
+    protected abstract void processHeaders(String headers);
+    protected abstract void processData(String data);
+    protected abstract void closeSource();
+    protected abstract boolean hasMoreData();
+    protected abstract String getNextData();
 }

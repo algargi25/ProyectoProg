@@ -10,42 +10,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\src\main\resources\songs_test.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\src\main\resources\songs_test_names.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\src\main\resources\songs_test_withoutnames.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\src\main\resources\songs_train.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\src\main\resources\songs_train_names.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=":" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\src\main\resources\songs_train_withoutnames.csv">
+        <entry key="\src\main\resources\recommender\songs_test_names.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

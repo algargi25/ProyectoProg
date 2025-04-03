@@ -51,6 +51,7 @@ public class CSV {
                         cabecera.add(valores[i]);
                     }
                     primeraLinea = false;
+
                 }
                 else {
                     List<Double> datos = new ArrayList<>();

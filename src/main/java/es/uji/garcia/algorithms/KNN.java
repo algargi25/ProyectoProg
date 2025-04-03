@@ -11,8 +11,7 @@ public class KNN implements Algorithm<TableWithLabels, Integer> {
     private TableWithLabels trainingData;
     private Distance distancia;
 
-    public KNN() {
-    }
+    
     public KNN(Distance distancia) {
         this.distancia = distancia;
     }
@@ -31,14 +30,15 @@ public class KNN implements Algorithm<TableWithLabels, Integer> {
         Integer etiqueta = null;
         boolean primero = true;
         for (RowWithLabel row : trainingData.getRows()) {
-            double distancia = this.distancia.calculateDistance(data, row.getData());
+
+            double dist = this.distancia.calculateDistance(data, row.getData());
             if(primero){
-                distanciaMin = distancia;
+                distanciaMin = dist;
                 etiqueta = trainingData.getLabelAsInteger(row.getLabel());
                 primero = false;
             }
-            if (!primero && distancia < distanciaMin) {
-                distanciaMin = distancia;
+            if (!primero && dist < distanciaMin) {
+                distanciaMin = dist;
                 etiqueta = trainingData.getLabelAsInteger(row.getLabel());
             }
         }

@@ -57,7 +57,7 @@ class RecSysTest {
             testTable = new CSV().readTableWithLabels(songsFolder + separator + "/songs_test.csv");
             testItemNames = readNames(songsFolder + separator + "/songs_test_names.csv");
 
-            algorithm = new KNN();
+            algorithm = new KNN(new EuclideanDistance());
             recSys = new RecSys(algorithm);
             recSys.train(trainTable);
             recSys.initialise(testTable, testItemNames);
