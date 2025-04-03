@@ -8,6 +8,8 @@ import es.uji.garcia.algorithms.KMeans;
 import es.uji.garcia.algorithms.KNN;
 import es.uji.garcia.data.CSV;
 import es.uji.garcia.data.table.Table;
+import es.uji.garcia.distances.Distance;
+import es.uji.garcia.distances.EuclideanDistance;
 import es.uji.garcia.exceptions.LikedItemNotFoundException;
 import org.junit.jupiter.api.*;
 
@@ -99,8 +101,8 @@ class RecSysTest {
             trainTable = new CSV().readTableWithLabels(songsFolder + separator + "/songs_train_withoutnames.csv");
             testTable = new CSV().readTableWithLabels(songsFolder + separator + "/songs_test_withoutnames.csv");
             testItemNames = readNames(songsFolder + separator + "/songs_test_names.csv");
-
-            algorithm = new KMeans(numClusters, numIterations, seed);
+            Distance dist = new EuclideanDistance();
+            algorithm = new KMeans(numClusters, numIterations, seed, dist);
             recSys = new RecSys(algorithm);
             recSys.train(trainTable);
             recSys.initialise(testTable, testItemNames);

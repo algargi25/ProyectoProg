@@ -5,6 +5,8 @@ import es.uji.garcia.algorithms.KNN;
 import es.uji.garcia.algorithms.KMeans;
 import es.uji.garcia.data.CSV;
 import es.uji.garcia.data.table.Table;
+import es.uji.garcia.distances.Distance;
+import es.uji.garcia.distances.EuclideanDistance;
 import es.uji.garcia.recommender.RecSys;
 
 import java.io.File;
@@ -28,8 +30,9 @@ class SongRecSys {
 
         // Algorithms
         Map<String, Algorithm> algorithms = new HashMap<>();
+        Distance dist = new EuclideanDistance();
         algorithms.put("knn",new KNN());
-        algorithms.put("kmeans",new KMeans(15, 200, 4321));
+        algorithms.put("kmeans",new KMeans(15, 200, 4321,dist));
 
         // Tables
         Map<String, Table> tables = new HashMap<>();

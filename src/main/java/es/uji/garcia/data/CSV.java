@@ -16,7 +16,7 @@ public class CSV {
     public CSV() {
     }
 
-    public Table readTable(String valor) throws URISyntaxException, IOException {
+    public Table readTable(String valor) throws IOException {
         String fichero = route(valor);
         BufferedReader br = new BufferedReader(new FileReader(fichero));
             String line;

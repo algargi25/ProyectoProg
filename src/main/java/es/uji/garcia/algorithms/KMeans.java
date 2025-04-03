@@ -1,6 +1,7 @@
 package es.uji.garcia.algorithms;
 
 import es.uji.garcia.data.table.Table;
+import es.uji.garcia.distances.Distance;
 import es.uji.garcia.exceptions.InvalidClusterNumberException;
 
 import java.util.*;
@@ -10,12 +11,14 @@ public class KMeans implements Algorithm<Table, Integer> {
     private int numIterations;
     private long seed;
     private List<List<Double>> centroides;
+    private Distance distancia;
 
-    public KMeans(int numClusters, int numIterations, long seed) {
+    public KMeans(int numClusters, int numIterations, long seed, Distance distancia) {
         this.numClusters = numClusters;
         this.numIterations = numIterations;
         this.seed = seed;
         this.centroides = new ArrayList<>();
+        this.distancia = distancia;
     }
 
 
@@ -60,10 +63,10 @@ public class KMeans implements Algorithm<Table, Integer> {
 
     private int obtenerCentroideMasCercano(List<Double> punto) {
         int indiceMin = 0;
-        double minDistancia = distanciaEuclidiana(punto, centroides.get(0));
+        double minDistancia = distancia.calculateDistance(punto, centroides.getFirst());
 
         for (int i = 1; i < centroides.size(); i++) {
-            double distancia = distanciaEuclidiana(punto, centroides.get(i));
+            double distancia = this.distancia.calculateDistance(punto, centroides.get(i));
             if (distancia < minDistancia) {
                 minDistancia = distancia;
                 indiceMin = i;
@@ -72,13 +75,13 @@ public class KMeans implements Algorithm<Table, Integer> {
         return indiceMin;
     }
 
-    private double distanciaEuclidiana(List<Double> a, List<Double> b) {
-        double suma = 0.0;
-        for (int i = 0; i < a.size(); i++) {
-            suma += Math.pow(a.get(i) - b.get(i), 2);
-        }
-        return Math.sqrt(suma);
-    }
+//    private double distanciaEuclidiana(List<Double> a, List<Double> b) {
+//        double suma = 0.0;
+//        for (int i = 0; i < a.size(); i++) {
+//            suma += Math.pow(a.get(i) - b.get(i), 2);
+//        }
+//        return Math.sqrt(suma);
+//    }
 
     private List<Double> calcularNuevoCentroide(List<List<Double>> puntos) {
         int dimensiones = puntos.get(0).size();
