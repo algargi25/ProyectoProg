@@ -1,8 +1,11 @@
 package es.uji.garcia.data.reader;
 
+import es.uji.garcia.data.table.Row;
 import es.uji.garcia.data.table.Table;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class CSVUnlabeledFileReader extends FileReader<Table> {
     public CSVUnlabeledFileReader(Table table, String source) {
@@ -10,6 +13,11 @@ public class CSVUnlabeledFileReader extends FileReader<Table> {
     }
     protected void processData(String data, Table table){
         String[] values = data.split(",");
-//        table.addRow();
+        List<Double> rowValues = new ArrayList<>();
+        for (String value : values) {
+            rowValues.add(Double.parseDouble(value));
+        }
+        Row r = new Row(rowValues);
+        table.addRow(r);
     }
 }
