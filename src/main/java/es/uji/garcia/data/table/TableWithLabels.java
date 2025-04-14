@@ -27,6 +27,11 @@ public class TableWithLabels extends Table{
         return rows;
     }
 
+    @Override
+    public int getRowCount() {
+        return rows.size();
+    }
+
     private void actEtiquetas(){
         int indice = 0;
         for (RowWithLabel fila : rows) {
@@ -36,6 +41,21 @@ public class TableWithLabels extends Table{
             }
         }
     }
+    public void addLabeledRow(List<Double> row , String label){
+        if(rows==null){
+            rows = new ArrayList<>();
+        }
+        RowWithLabel nueva = new RowWithLabel(row, label);
+        rows.add(nueva);
+        if (!etiquetas.containsKey(label)){
+            etiquetas.put(label, etiquetas.size());
+        }
+    }
+
+
+
+
+
     public int getLabelAsInteger(String label){
         return etiquetas.get(label);
     }

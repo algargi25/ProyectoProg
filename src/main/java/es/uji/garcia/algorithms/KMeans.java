@@ -13,6 +13,14 @@ public class KMeans implements Algorithm<Table, Integer> {
     private List<List<Double>> centroides;
     private Distance distancia;
 
+    public KMeans(int numClusters, int numIterations, long seed) {
+        this.numClusters = numClusters;
+        this.numIterations = numIterations;
+        this.seed = seed;
+        this.centroides = new ArrayList<>();
+
+    }
+
     public KMeans(int numClusters, int numIterations, long seed, Distance distancia) {
         this.numClusters = numClusters;
         this.numIterations = numIterations;

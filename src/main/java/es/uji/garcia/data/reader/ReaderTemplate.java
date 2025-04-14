@@ -3,22 +3,25 @@ package es.uji.garcia.data.reader;
 import es.uji.garcia.data.table.Table;
 
 public abstract class ReaderTemplate<T extends Table> {
-    private T table;
+    protected T table;
     private String source;
-    private String headers;
-    private String data;
 
-    public ReaderTemplate(T table, String source) {
-        this.table = table;
+    public ReaderTemplate(String source) {
         this.source = source;
     }
 
     public final T readTableFromSource(){
         openSource(source);
-        processHeaders(headers);
-        processData(data);
+        if(hasMoreData()){
+            String header = getNextData();
+            processHeaders(header);
+        }
+        while(hasMoreData()){
+            String data = getNextData();
+            processData(data);
+        }
         closeSource();
-        return null;
+        return table;
     }
     protected abstract void openSource(String source);
     protected abstract void processHeaders(String headers);

@@ -11,6 +11,7 @@ public class RowWithLabel extends Row{
         this.label=label;
     }
 
+
     public String getLabel() {
         return label;
     }

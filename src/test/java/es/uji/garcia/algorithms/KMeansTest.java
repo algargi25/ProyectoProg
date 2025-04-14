@@ -4,7 +4,7 @@ package es.uji.garcia.algorithms;
 // TODO: Pon los imports especificos a tu proyecto
 
 
-import es.uji.garcia.data.CSV;
+import es.uji.garcia.data.reader.CSVLabeledFileReader;
 import es.uji.garcia.distances.Distance;
 import es.uji.garcia.distances.EuclideanDistance;
 import es.uji.garcia.exceptions.InvalidClusterNumberException;
@@ -31,7 +31,7 @@ class KMeansTest {
     @BeforeEach
     // TODO: En caso de manejar la excepción IOException en CSV, puedes eliminarla aquí
     void setUp() throws InvalidClusterNumberException, IOException {
-        iris = new CSV().readTableWithLabels("iris.csv");
+        iris = new CSVLabeledFileReader("iris.csv").readTableFromSource();
         Distance dist = new EuclideanDistance();
         kMeans = new KMeans(irisClusters, numIterations, seed,dist);
         kMeans.train(iris);

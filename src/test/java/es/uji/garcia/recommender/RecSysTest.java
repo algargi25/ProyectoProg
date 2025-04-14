@@ -6,7 +6,7 @@ package es.uji.garcia.recommender;
 import es.uji.garcia.algorithms.Algorithm;
 import es.uji.garcia.algorithms.KMeans;
 import es.uji.garcia.algorithms.KNN;
-import es.uji.garcia.data.CSV;
+import es.uji.garcia.data.reader.CSVLabeledFileReader;
 import es.uji.garcia.data.table.Table;
 import es.uji.garcia.distances.Distance;
 import es.uji.garcia.distances.EuclideanDistance;
@@ -53,8 +53,8 @@ class RecSysTest {
         // TODO: añadir o eliminar excepciones según tu implementación
         void setUp() throws Exception {
 
-            trainTable = new CSV().readTableWithLabels(songsFolder + separator + "/songs_train.csv");
-            testTable = new CSV().readTableWithLabels(songsFolder + separator + "/songs_test.csv");
+            trainTable = new CSVLabeledFileReader(songsFolder + separator + "/songs_train.csv").readTableFromSource();
+            testTable = new CSVLabeledFileReader(songsFolder + separator + "/songs_test.csv").readTableFromSource();
             testItemNames = readNames(songsFolder + separator + "/songs_test_names.csv");
 
             algorithm = new KNN(new EuclideanDistance());
@@ -98,8 +98,8 @@ class RecSysTest {
         @BeforeEach
         // TODO: añadir o eliminar excepciones según tu implementación
         void setUp() throws Exception {
-            trainTable = new CSV().readTableWithLabels(songsFolder + separator + "/songs_train_withoutnames.csv");
-            testTable = new CSV().readTableWithLabels(songsFolder + separator + "/songs_test_withoutnames.csv");
+            trainTable = new CSVLabeledFileReader(songsFolder + separator + "/songs_train_withoutnames.csv").readTableFromSource();
+            testTable = new CSVLabeledFileReader(songsFolder + separator + "/songs_test_withoutnames.csv").readTableFromSource();
             testItemNames = readNames(songsFolder + separator + "/songs_test_names.csv");
             Distance dist = new EuclideanDistance();
             algorithm = new KMeans(numClusters, numIterations, seed, dist);

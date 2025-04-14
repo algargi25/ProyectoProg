@@ -8,10 +8,21 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CSVUnlabeledFileReader extends FileReader<Table> {
-    public CSVUnlabeledFileReader(Table table, String source) {
-        super(table, source);
+    public CSVUnlabeledFileReader(String source) {
+        super(source);
     }
-    protected void processData(String data, Table table){
+
+    @Override
+    protected void processHeaders(String headers) {
+        List<String> listaHeaders = new ArrayList<>();
+        for (String header: headers.split(",")){
+            listaHeaders.add(header);
+        }
+        table = new Table(listaHeaders, new ArrayList<>());
+    }
+
+
+    protected void processData(String data){
         String[] values = data.split(",");
         List<Double> rowValues = new ArrayList<>();
         for (String value : values) {
