@@ -64,7 +64,8 @@ class KMeansTest {
 //    @Test
 //    @DisplayName("KMeans train - more clusters than samples")
 //    void train_invalidClusters() {
-//        kMeans = new KMeans(200, numIterations, seed);
+//        Distance dist = new EuclideanDistance();
+//        kMeans = new KMeans(200, numIterations, seed,dist);
 //        Exception e = assertThrows(InvalidClusterNumberException.class, () -> kMeans.train(iris));
 //        // TODO: reemplazar getNumRows() con método equivalente, si hace falta
 //        System.out.println("Clusters: "+((InvalidClusterNumberException)e).getNumberOfClusters());
