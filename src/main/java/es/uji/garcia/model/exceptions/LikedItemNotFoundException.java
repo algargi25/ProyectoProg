@@ -1,4 +1,4 @@
-package es.uji.garcia.exceptions;
+package es.uji.garcia.model.exceptions;
 
 public class LikedItemNotFoundException extends Exception {
     public LikedItemNotFoundException(String item) {

@@ -1,8 +1,6 @@
-package es.uji.garcia.data.reader;
+package es.uji.garcia.model.data.reader;
 
-import es.uji.garcia.data.table.Row;
-import es.uji.garcia.data.table.Table;
-import es.uji.garcia.data.table.TableWithLabels;
+import es.uji.garcia.model.data.table.TableWithLabels;
 
 import java.util.ArrayList;
 import java.util.List;

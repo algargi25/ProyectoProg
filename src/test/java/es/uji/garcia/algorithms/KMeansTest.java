@@ -4,11 +4,12 @@ package es.uji.garcia.algorithms;
 // TODO: Pon los imports especificos a tu proyecto
 
 
-import es.uji.garcia.data.reader.CSVLabeledFileReader;
-import es.uji.garcia.distances.Distance;
-import es.uji.garcia.distances.EuclideanDistance;
-import es.uji.garcia.exceptions.InvalidClusterNumberException;
-import es.uji.garcia.data.table.TableWithLabels;
+import es.uji.garcia.model.algorithms.KMeans;
+import es.uji.garcia.model.data.reader.CSVLabeledFileReader;
+import es.uji.garcia.model.distances.Distance;
+import es.uji.garcia.model.distances.EuclideanDistance;
+import es.uji.garcia.model.exceptions.InvalidClusterNumberException;
+import es.uji.garcia.model.data.table.TableWithLabels;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

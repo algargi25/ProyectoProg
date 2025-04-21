@@ -1,4 +1,4 @@
-package es.uji.garcia.distances;
+package es.uji.garcia.model.distances;
 
 import java.util.List;
 

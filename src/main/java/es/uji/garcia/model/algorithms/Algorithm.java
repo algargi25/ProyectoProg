@@ -1,6 +1,4 @@
-package es.uji.garcia.algorithms;
-
-import es.uji.garcia.exceptions.InvalidClusterNumberException;
+package es.uji.garcia.model.algorithms;
 
 import java.util.List;
 

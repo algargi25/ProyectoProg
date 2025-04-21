@@ -1,9 +1,8 @@
-package es.uji.garcia.recommender;
+package es.uji.garcia.model.recommender;
 
-import es.uji.garcia.algorithms.Algorithm;
-import es.uji.garcia.data.table.Table;
-import es.uji.garcia.exceptions.InvalidClusterNumberException;
-import es.uji.garcia.exceptions.LikedItemNotFoundException;
+import es.uji.garcia.model.algorithms.Algorithm;
+import es.uji.garcia.model.data.table.Table;
+import es.uji.garcia.model.exceptions.LikedItemNotFoundException;
 
 import java.util.*;
 

@@ -1,6 +1,6 @@
-package es.uji.garcia.data.reader;
+package es.uji.garcia.model.data.reader;
 
-import es.uji.garcia.data.table.Table;
+import es.uji.garcia.model.data.table.Table;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,10 +1,9 @@
-package es.uji.garcia.data.reader;
+package es.uji.garcia.model.data.reader;
 
-import es.uji.garcia.data.table.Row;
-import es.uji.garcia.data.table.Table;
+import es.uji.garcia.model.data.table.Row;
+import es.uji.garcia.model.data.table.Table;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CSVUnlabeledFileReader extends FileReader<Table> {

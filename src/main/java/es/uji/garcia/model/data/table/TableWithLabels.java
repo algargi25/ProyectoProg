@@ -1,4 +1,4 @@
-package es.uji.garcia.data.table;
+package es.uji.garcia.model.data.table;
 
 import java.util.ArrayList;
 import java.util.HashMap;

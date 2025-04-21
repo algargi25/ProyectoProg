@@ -1,4 +1,4 @@
-package es.uji.garcia.exceptions;
+package es.uji.garcia.model.exceptions;
 
 public class InvalidClusterNumberException extends Exception {
     private int numClusters;

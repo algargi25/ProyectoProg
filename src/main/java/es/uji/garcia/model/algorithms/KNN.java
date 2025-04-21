@@ -1,8 +1,8 @@
-package es.uji.garcia.algorithms;
+package es.uji.garcia.model.algorithms;
 
-import es.uji.garcia.data.table.RowWithLabel;
-import es.uji.garcia.data.table.TableWithLabels;
-import es.uji.garcia.distances.Distance;
+import es.uji.garcia.model.data.table.RowWithLabel;
+import es.uji.garcia.model.data.table.TableWithLabels;
+import es.uji.garcia.model.distances.Distance;
 
 import java.util.List;
 

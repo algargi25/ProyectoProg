@@ -1,8 +1,8 @@
-package es.uji.garcia.algorithms;
+package es.uji.garcia.model.algorithms;
 
-import es.uji.garcia.data.table.Table;
-import es.uji.garcia.distances.Distance;
-import es.uji.garcia.exceptions.InvalidClusterNumberException;
+import es.uji.garcia.model.data.table.Table;
+import es.uji.garcia.model.distances.Distance;
+import es.uji.garcia.model.exceptions.InvalidClusterNumberException;
 
 import java.util.*;
 

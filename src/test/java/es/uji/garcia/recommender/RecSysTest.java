@@ -3,14 +3,15 @@ package es.uji.garcia.recommender;
 
 // TODO: Pon los imports especificos a tu proyecto
 
-import es.uji.garcia.algorithms.Algorithm;
-import es.uji.garcia.algorithms.KMeans;
-import es.uji.garcia.algorithms.KNN;
-import es.uji.garcia.data.reader.CSVLabeledFileReader;
-import es.uji.garcia.data.table.Table;
-import es.uji.garcia.distances.Distance;
-import es.uji.garcia.distances.EuclideanDistance;
-import es.uji.garcia.exceptions.LikedItemNotFoundException;
+import es.uji.garcia.model.algorithms.Algorithm;
+import es.uji.garcia.model.algorithms.KMeans;
+import es.uji.garcia.model.algorithms.KNN;
+import es.uji.garcia.model.data.reader.CSVLabeledFileReader;
+import es.uji.garcia.model.data.table.Table;
+import es.uji.garcia.model.distances.Distance;
+import es.uji.garcia.model.distances.EuclideanDistance;
+import es.uji.garcia.model.exceptions.LikedItemNotFoundException;
+import es.uji.garcia.model.recommender.RecSys;
 import org.junit.jupiter.api.*;
 
 import java.io.File;

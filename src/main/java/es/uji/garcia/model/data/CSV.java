@@ -1,9 +1,9 @@
-package es.uji.garcia.data;
+package es.uji.garcia.model.data;
 
-import es.uji.garcia.data.table.Row;
-import es.uji.garcia.data.table.RowWithLabel;
-import es.uji.garcia.data.table.Table;
-import es.uji.garcia.data.table.TableWithLabels;
+import es.uji.garcia.model.data.table.Row;
+import es.uji.garcia.model.data.table.RowWithLabel;
+import es.uji.garcia.model.data.table.Table;
+import es.uji.garcia.model.data.table.TableWithLabels;
 
 import java.io.*;
 import java.net.URISyntaxException;

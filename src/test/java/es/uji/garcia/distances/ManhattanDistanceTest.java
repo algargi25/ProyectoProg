@@ -3,6 +3,8 @@ package es.uji.garcia.distances;
 
 // TODO: Pon los imports especificos a tu proyecto
 
+import es.uji.garcia.model.distances.Distance;
+import es.uji.garcia.model.distances.ManhattanDistance;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;

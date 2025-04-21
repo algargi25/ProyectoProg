@@ -3,8 +3,8 @@ package es.uji.garcia.data;
 
 // TODO: Reemplazar por los imports de tu proyecto
 
-import es.uji.garcia.data.table.RowWithLabel;
-import es.uji.garcia.data.table.TableWithLabels;
+import es.uji.garcia.model.data.table.RowWithLabel;
+import es.uji.garcia.model.data.table.TableWithLabels;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

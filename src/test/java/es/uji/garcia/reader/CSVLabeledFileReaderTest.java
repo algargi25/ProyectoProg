@@ -3,8 +3,8 @@ package es.uji.garcia.reader;
 
 // TODO: Pon los imports especificos a tu proyecto
 
-import es.uji.garcia.data.reader.CSVLabeledFileReader;
-import es.uji.garcia.data.table.TableWithLabels;
+import es.uji.garcia.model.data.reader.CSVLabeledFileReader;
+import es.uji.garcia.model.data.table.TableWithLabels;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
