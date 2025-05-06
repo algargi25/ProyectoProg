@@ -3,8 +3,8 @@ package es.uji.garcia.view;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -16,14 +16,65 @@ public class MyApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        VBox layout = new VBox(); // Contenedor principal
-        Label label = new Label("Hola mundo!"); // Texto no editable
-        Button button = new Button("Un bot�n :D"); // Un bot�n, no hace nada
-        layout.getChildren().addAll(label, button); // A�ade elementos al contenedor
-        layout.setAlignment(Pos.CENTER); // Centra los elementos
-// A�ade el contenedor a la escena, y la escena al escenario
-        primaryStage.setScene(new Scene(layout, 200, 100));
-        primaryStage.setTitle("JavaFXApp"); // T�tulo de ventana
-        primaryStage.show(); // Muestra la ventana
+        // ComboBoxes
+        ComboBox<String> algorithmCombo = new ComboBox<>();
+        algorithmCombo.getItems().addAll("kMeans", "KNN");
+        algorithmCombo.setValue("kMeans");
+
+        ComboBox<String> distanceCombo = new ComboBox<>();
+        distanceCombo.getItems().addAll("Euclidiana", "Manhattan");
+        distanceCombo.setValue("Euclidiana");
+
+        // ListView para las canciones
+        ListView<String> songListView = new ListView<>();
+        songListView.getItems().addAll("Canción A", "Canción B", "Canción C"); // aquí van las canciones reales
+
+        // Spinner para cantidad de recomendaciones
+        Spinner<Integer> recommendationCountSpinner = new Spinner<>(1, 20, 5);
+
+        // Botón para recomendar
+        Button recommendButton = new Button("Recomendar");
+        recommendButton.setDisable(true); // Desactivado al inicio
+
+        // Activar botón solo si se selecciona una canción
+        songListView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            recommendButton.setDisable(newVal == null);
+        });
+
+        // Área para mostrar resultados
+        ListView<String> resultListView = new ListView<>();
+
+        // Acción del botón
+        recommendButton.setOnAction(e -> {
+            String selectedSong = songListView.getSelectionModel().getSelectedItem();
+            int numRecs = recommendationCountSpinner.getValue();
+            String algorithm = algorithmCombo.getValue();
+            String distance = distanceCombo.getValue();
+
+            // Aquí llamas a tu lógica de recomendación
+            resultListView.getItems().clear();
+            resultListView.getItems().add("Recomendación 1 para " + selectedSong);
+            resultListView.getItems().add("Recomendación 2...");
+            // etc.
+        });
+
+        // Layouts
+        VBox controls = new VBox(10,
+                new Label("Algoritmo:"), algorithmCombo,
+                new Label("Distancia:"), distanceCombo,
+                new Label("Selecciona canción:"), songListView,
+                new Label("Número de recomendaciones:"), recommendationCountSpinner,
+                recommendButton
+        );
+
+        BorderPane root = new BorderPane();
+        root.setLeft(controls);
+        root.setCenter(new VBox(new Label("Recomendaciones:"), resultListView));
+
+        // Mostrar
+        Scene scene = new Scene(root, 600, 400);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Sistema de Recomendación de Canciones");
+        primaryStage.show();
     }
 }
