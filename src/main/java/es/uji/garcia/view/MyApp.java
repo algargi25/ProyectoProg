@@ -1,12 +1,21 @@
 package es.uji.garcia.view;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class MyApp extends Application {
 
@@ -15,7 +24,7 @@ public class MyApp extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException, URISyntaxException {
         // ComboBoxes
         ComboBox<String> algorithmCombo = new ComboBox<>();
         algorithmCombo.getItems().addAll("kMeans", "KNN");
@@ -27,7 +36,12 @@ public class MyApp extends Application {
 
         // ListView para las canciones
         ListView<String> songListView = new ListView<>();
-        songListView.getItems().addAll("Canción A", "Canción B", "Canción C"); // aquí van las canciones reales
+        String sep = System.getProperty("file.separator");
+        String ruta = "recommender";
+        List<String> names = readNames(ruta+sep+ "/songs_test_names.csv");
+        ObservableList<String> canciones = FXCollections.observableList(names);
+
+        songListView.getItems().addAll(canciones); // aquí van las canciones reales
 
         // Spinner para cantidad de recomendaciones
         Spinner<Integer> recommendationCountSpinner = new Spinner<>(1, 20, 5);
@@ -77,4 +91,16 @@ public class MyApp extends Application {
         primaryStage.setTitle("Sistema de Recomendación de Canciones");
         primaryStage.show();
     }
+    private List<String> readNames(String fileOfItemNames) throws IOException, URISyntaxException {
+        String path = getClass().getClassLoader().getResource(fileOfItemNames).toURI().getPath();
+
+        List<String> names = new ArrayList<>();
+        Scanner scanner = new Scanner(new File(path));
+        while (scanner.hasNextLine()) {
+            names.add(scanner.nextLine());
+        }
+        scanner.close();
+        return names;
+    }
+
 }
