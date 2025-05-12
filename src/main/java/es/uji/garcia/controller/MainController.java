@@ -90,7 +90,7 @@ public class MainController {
         List<String> names = new ArrayList<>();
         Scanner scanner = new Scanner(new File(path));
         while (scanner.hasNextLine()) {
-            names.add(scanner.nextLine());
+            names.add(scanner.nextLine().trim());
         }
         scanner.close();
         return names;

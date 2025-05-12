@@ -9,43 +9,52 @@ import java.util.*;
 public class RecSys {
 
     private Algorithm<Table, Integer> algorithm;
-    private List<String> testItemNames;
-    private Map<String, Integer> estimatedClasses;
+    private Map<String, Integer> itemClassMap;
+    private List<String> itemNames;
 
     public RecSys(Algorithm<Table, Integer> algorithm) {
         this.algorithm = algorithm;
-        this.estimatedClasses = new HashMap<>();
+        this.itemClassMap = new HashMap<>();
+        this.itemNames = new ArrayList<>();
     }
 
     public void train(Table trainData) throws Exception {
-
         algorithm.train(trainData);
     }
 
     public void initialise(Table testData, List<String> testItemNames) {
-        this.testItemNames = testItemNames;
+        this.itemNames = testItemNames;
+        itemClassMap.clear();
+
         for (int i = 0; i < testData.getRowCount(); i++) {
-            estimatedClasses.put(testItemNames.get(i), algorithm.estimate(testData.getRowAt(i).getData()));
+            int cluster = algorithm.estimate(testData.getRowAt(i).getData());
+            itemClassMap.put(testItemNames.get(i), cluster);
         }
     }
 
     public List<String> recommend(String nameLikedItem, int numRecommendations) throws LikedItemNotFoundException {
-        if (!estimatedClasses.containsKey(nameLikedItem)) {
-            throw new LikedItemNotFoundException("El ítem '" + nameLikedItem + "' no se encuentra en la lista.");
+
+        if(!itemNames.contains(nameLikedItem)){
+            throw new LikedItemNotFoundException("No se ha encontrado el elemento", nameLikedItem);
         }
 
-        int targetClass = estimatedClasses.get(nameLikedItem);
-        List<String> recommendations = new ArrayList<>();
+        List<String> recomendaciones = new ArrayList<>();
 
-        for (String item : estimatedClasses.keySet()) {
-            if (estimatedClasses.get(item) == targetClass && !item.equals(nameLikedItem)) {
-                recommendations.add(item);
-                if (recommendations.size() == numRecommendations) break;
+        if (!itemClassMap.containsKey(nameLikedItem)) {
+            throw new IllegalArgumentException("El ítem no existe en la lista de prueba.");
+        }
+
+        int likedClass = itemClassMap.get(nameLikedItem);
+
+        for (String item : itemNames) {
+            if (!item.equals(nameLikedItem) && itemClassMap.get(item) == likedClass) {
+                recomendaciones.add(item);
+                if (recomendaciones.size() >= numRecommendations) {
+                    break;
+                }
             }
         }
-        if (recommendations.isEmpty()) {
-            throw new LikedItemNotFoundException("No se encontraron recomendaciones para el ítem '" + nameLikedItem + "'.");
-        }
-        return recommendations;
+
+        return recomendaciones;
     }
 }

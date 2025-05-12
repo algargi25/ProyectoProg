@@ -1,8 +1,15 @@
 package es.uji.garcia.model.exceptions;
 
 public class LikedItemNotFoundException extends Exception {
-    public LikedItemNotFoundException(String item) {
-        super("El ítem '" + item + "' no se encuentra en la lista de recomendaciones.");
+    private String nameLikedItem;
+
+    public LikedItemNotFoundException(String message, String nameLikedItem){
+        super(message);
+        this.nameLikedItem = nameLikedItem;
+    }
+
+    public String getNameLikedItem(){
+        return nameLikedItem;
     }
 
 }
