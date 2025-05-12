@@ -37,7 +37,7 @@ class SongRecSys {
         // Tables
         Map<String, Table> tables = new HashMap<>();
         String [] stages = {"train", "test"};
-        CSV csv;
+//        CSV csv = null;
 //        for (String stage : stages) {
 //            tables.put("knn" + stage, csv.readTableWithLabels(filenames.get("knn" + stage)));
 //            tables.put("kmeans" + stage, csv.readTable(filenames.get("kmeans" + stage)));
